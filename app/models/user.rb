@@ -8,10 +8,7 @@ class User < ActiveRecord::Base
   include DeviseTokenAuth::Concerns::User
   has_many :messages
   has_many :likes
-<<<<<<< HEAD
   has_many :goals
-=======
->>>>>>> refs/remotes/origin/master
   validates :name, presence: true
   validates :name, length: { maximum: 30 }
 end
