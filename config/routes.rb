@@ -8,5 +8,8 @@ Rails.application.routes.draw do
     end
   end
   resources :likes, only: ['destroy']
+<<<<<<< HEAD
   resources :goals, only: ['create', 'show', 'index']
+=======
+>>>>>>> refs/remotes/origin/master
 end

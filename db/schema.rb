@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2022_07_13_004804) do
 
   create_table "goals", force: :cascade do |t|
@@ -19,6 +20,9 @@ ActiveRecord::Schema.define(version: 2022_07_13_004804) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_goals_on_user_id"
   end
+=======
+ActiveRecord::Schema.define(version: 2022_07_02_011657) do
+>>>>>>> refs/remotes/origin/master
 
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
