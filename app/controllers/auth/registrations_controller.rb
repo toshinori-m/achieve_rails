@@ -5,4 +5,8 @@ class Auth::RegistrationsController < DeviseTokenAuth::RegistrationsController
   def sign_up_params
     params.require(:registration).permit(:name, :email, :password, :password_confirmation)
   end
+
+  def goals_params
+    params.require(:goal).permit(:aim)
+  end
 end
