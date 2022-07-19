@@ -1,5 +1,5 @@
 class GoalsController < ApplicationController
-  before_action :authenticate_user!, only: ['create']
+  before_action :authenticate_user!
 
   def create
     goals_params = Goal.new(goals_params)
@@ -15,7 +15,7 @@ class GoalsController < ApplicationController
 
 
   def index
-    goals = Goal.all
+    goals = Goal.all.order(id: "DESC").limit(1)
     goals_array = goals.map do |goal|
       {
         id: goal.id,

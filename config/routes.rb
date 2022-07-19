@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     end
   end
   resources :likes, only: ['destroy']
-  resources :goals, only: ['create', 'show', 'index']
+  resources :goals, only: ['create', 'index']
+  resources :threemonths_goals, only: ['create', 'index']
 end
