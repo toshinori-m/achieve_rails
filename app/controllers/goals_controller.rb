@@ -29,7 +29,7 @@ class GoalsController < ApplicationController
     render json: goals_array, status: 200
   end
 
-  private
+private
   def goals_params
     params.require(:goal).permit(:aim)
   end
