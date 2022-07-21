@@ -6,35 +6,28 @@ class ThreemonthsGoalsController < ApplicationController
   # end
 
   def create
-    # threemonths_goals_params = ThreemonthsGoal.new(threemonths_goals_params)
-    # threemonths_goals = threemonths_goals_params
+    # threemonths_goals = ThreemonthsGoal.new()
     # threemonths_goals.user = current_user
     # threemonths_goals.aim = params[:aim_1]
     # threemonths_goals.quarter = 1
-    # quarter_0 = threemonths_goals
+    # quarter = threemonths_goals
 
-    # quarter_0 = ThreemonthsGoal.new(aim:params[:aim_1], quarter: 0, user_id: current_user.id)
+    # quarter = ThreemonthsGoal.new(aim:params[:aim_1], quarter: 1, user_id: current_user.id)
 
     # quarter_1 = ThreemonthsGoal.new(aim:params[:form_threemonths_goal_collection][:aim_2], quarter: 1,user_id: current_user.id)
     # quarter_2 = ThreemonthsGoal.new(aim:params[:form_threemonths_goal_collection][:aim_3], quarter: 2,user_id: current_user.id)
     # quarter_3 = ThreemonthsGoal.new(aim:params[:form_threemonths_goal_collection][:aim_4], quarter: 3,user_id: current_user.id)
 
-    for aim in [params[:aim_1], params[:aim_2], params[:aim_3], params[:aim_4]]
-      threemonths_goals_params = ThreemonthsGoal.new(aim:params[:aim_1], quarter: 0, user_id: current_user.id)
-      quarter = threemonths_goals_params,
-      threemonths_goals_params = ThreemonthsGoal.new(aim:params[:aim_2], quarter: 1, user_id: current_user.id)
-      quarter = threemonths_goals_params,
-      threemonths_goals_params = ThreemonthsGoal.new(aim:params[:aim_3], quarter: 2, user_id: current_user.id)
-      quarter = threemonths_goals_params,
-      threemonths_goals_params = ThreemonthsGoal.new(aim:params[:aim_4], quarter: 3, user_id: current_user.id)
-      quarter = threemonths_goals_params
+    aims = [params[:aim_1], params[:aim_2], params[:aim_3], params[:aim_4]]
+      for i in 1 .. 4 do threemonths_goals_params = ThreemonthsGoal.new(aims, quarter: i, user_id: current_user.id)
+        quarter = threemonths_goals_params
 
-    if aim.save
-      render json: { id: threemonths_goals_params.id, message: '成功しました' }, status: :ok
-    else
-      render json: { message: '保存出来ませんでした', errors: threemonths_goals.errors.messages }, status: :bad_request
+      if quarter.save
+        render json: { id: threemonths_goals.id, message: '成功しました' }, status: :ok
+      else
+        render json: { message: '保存出来ませんでした', errors: threemonths_goals.errors.messages }, status: :bad_request
+      end
     end
-  end
   end
 
   # def index
@@ -57,6 +50,6 @@ private
   def threemonths_goal_collection_params
     params
       .require(:threemonths_goal)
-      .permit(:aim_1, :aim_2, :aim_3, :aim_4)
+      .permit(:aim_1,:aim_2,:aim_3,:aim_4)
   end
 end
