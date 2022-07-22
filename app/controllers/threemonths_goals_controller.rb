@@ -14,21 +14,21 @@ class ThreemonthsGoalsController < ApplicationController
     render json: { id: threemonths_goals_params.id, message: '成功しました' }, status: :ok
   end
 
-  # def index
-  #   threemonths_goals = ThreemonthsGoal.all
-  #   threemonths_goals_array = threemonths_goals.map do |threemonths_goal|
-  #     {
-  #       id: threemonths_goal.id,
-  #       user_id: threemonths_goal.user.id,
-  #       name: threemonths_goal.user.name,
-  #       aim: threemonths_goal.aim,
-  #       quarter: threemonths_goal.quarter,
-  #       email: threemonths_goal.user.email,
-  #       created_at: threemonths_goal.created_at
-  #     }
-  #   end
-  #   render json: threemonths_goals_array, status: 200
-  # end
+  def index
+    threemonths_goals = ThreemonthsGoal.all
+    threemonths_goals_array = threemonths_goals.map do |threemonths_goal|
+      {
+        id: threemonths_goal.id,
+        user_id: threemonths_goal.user.id,
+        name: threemonths_goal.user.name,
+        aim: threemonths_goal.aim,
+        quarter: threemonths_goal.quarter,
+        email: threemonths_goal.user.email,
+        created_at: threemonths_goal.created_at
+      }
+    end
+    render json: threemonths_goals_array, status: 200
+  end
 
 private
   def threemonths_goal_collection_params
