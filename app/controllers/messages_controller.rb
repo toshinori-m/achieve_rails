@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
     messages_array = messages.map do |message|
       {
         id: message.id,
-        user_id: message.user.id,
+        user_id: message.user_id,
         name: message.user.name,
         content: message.content,
         email: message.user.email,

@@ -13,13 +13,12 @@ class GoalsController < ApplicationController
     end
   end
 
-
   def index
     goals = Goal.all.order(id: "DESC").limit(1)
     goals_array = goals.map do |goal|
       {
         id: goal.id,
-        user_id: goal.user.id,
+        user_id: goal.user_id,
         name: goal.user.name,
         aim: goal.aim,
         email: goal.user.email,

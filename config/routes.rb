@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   end
   resources :likes, only: ['destroy']
   resources :goals, only: ['create', 'index']
-  resources :threemonths_goals, only: ['new' ,'create', 'index']
+  resources :threemonths_goals, only: ['create', 'index']
 end
