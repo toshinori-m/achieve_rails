@@ -15,7 +15,8 @@ class ThreemonthsGoalsController < ApplicationController
   end
 
   def index
-    threemonths_goals = ThreemonthsGoal.order(user_id: "DESC").limit(1)
+    threemonths_goals = ThreemonthsGoal.order(user_id: "ASC").last(4)
+    # threemonths_goals = ThreemonthsGoal.all
     threemonths_goals_array = threemonths_goals.map do |threemonths_goal|
       {
       id: threemonths_goal.id,
@@ -30,7 +31,7 @@ class ThreemonthsGoalsController < ApplicationController
     render json: threemonths_goals_array, status: 200
   end
 
-private
+  private
   def threemonths_goals_params
     params
       .require(:threemonths_goal)

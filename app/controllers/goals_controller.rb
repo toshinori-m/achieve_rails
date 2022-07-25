@@ -14,7 +14,8 @@ class GoalsController < ApplicationController
   end
 
   def index
-    goals = Goal.order(user_id: "DESC").limit(1)
+    # goals = Goal.order(:user_id ).last(1)
+    goals = Goal.all
     goals_array = goals.map do |goal|
       {
         id: goal.id,
@@ -28,7 +29,7 @@ class GoalsController < ApplicationController
     render json: goals_array, status: 200
   end
 
-private
+  private
   def goals_params
     params.require(:goal).permit(:aim)
   end
