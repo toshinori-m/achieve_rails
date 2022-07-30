@@ -3,7 +3,6 @@ class LikesController < ApplicationController
 
   def create
     like = Like.new(message_id: params[:id], user_id: current_user.id)
-
     if like.save
       render json: { id: like.id, email: current_user.email, message: '成功しました' }, status: :ok
     else

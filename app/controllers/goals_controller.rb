@@ -2,20 +2,16 @@ class GoalsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    goals_params = Goal.new(goals_params)
-    goals = goals_params
-    goals.user = current_user
-    goals.aim = params[:aim]
+    goals = Goal.new(aim: params[:aim], user_id: current_user.id)
     if goals.save
       render json: { id: goals.id, message: '成功しました' }, status: :ok
     else
       render json: { message: '保存出来ませんでした', errors: goals.errors.messages }, status: :bad_request
     end
   end
-
+  
   def index
-    # goals = Goal.order(:user_id ).last(1)
-    goals = Goal.all
+    goals = Goal.all.order(user_id: "ASC").last(1)
     goals_array = goals.map do |goal|
       {
         id: goal.id,

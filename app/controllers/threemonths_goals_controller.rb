@@ -15,8 +15,8 @@ class ThreemonthsGoalsController < ApplicationController
   end
 
   def index
-    threemonths_goals = ThreemonthsGoal.order(user_id: "ASC").last(4)
-    # threemonths_goals = ThreemonthsGoal.all
+    # threemonths_goals = ThreemonthsGoal.order(user_id: "ASC").last(4)
+    threemonths_goals = ThreemonthsGoal.all
     threemonths_goals_array = threemonths_goals.map do |threemonths_goal|
       {
       id: threemonths_goal.id,
