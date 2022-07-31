@@ -10,8 +10,5 @@ Rails.application.routes.draw do
   resources :users
   resources :likes, only: ['destroy']
   resources :goals, only: ['create', 'index']
-  # resources :goals, only: ['create']
-  # get 'goals/:user_id', to: 'goals#index'
-  # get 'goals/:current_user_id', to: 'goals#index'
   resources :threemonths_goals, only: ['create', 'index']
 end

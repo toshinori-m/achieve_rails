@@ -9,9 +9,9 @@ class GoalsController < ApplicationController
       render json: { message: '保存出来ませんでした', errors: goals.errors.messages }, status: :bad_request
     end
   end
-  
+
   def index
-    goals = Goal.all.order(user_id: "ASC").last(1)
+    goals = Goal.where("user_id = #{current_user.id}").order(id: "ASC").last(1)
     goals_array = goals.map do |goal|
       {
         id: goal.id,
