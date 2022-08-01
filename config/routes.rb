@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   resources :likes, only: ['destroy']
   resources :goals, only: ['create', 'index']
   resources :threemonths_goals, only: ['create', 'index']
+  resources :monthly_goals, only: ['create', 'index']
 end

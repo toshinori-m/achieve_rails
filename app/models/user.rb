@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :likes
   has_many :goals
   has_many :threemonths_goals
+  has_many :monthly_goals
   validates :name, presence: true
   validates :name, length: { maximum: 30 }
 end
