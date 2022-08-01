@@ -11,13 +11,18 @@ class ReportsController < ApplicationController
   end
 
   def index
-    reports = Report.where("user_id = #{current_user.id}").order(id: "ASC").last(10)
+    reports = Report.where("user_id = #{current_user.id}").order(id: "ASC").last(1)
     reports_array = reports.map do |report|
       {
         id: report.id,
         user_id: report.user_id,
         name: report.user.name,
-        aim: report.aim,
+        report: report.report,
+        point: report.point,
+        location: report.location,
+        time: report.time,
+        condition: report.condition,
+        intensity: report.intensity,
         email: report.user.email,
         created_at: report.created_at
       }
