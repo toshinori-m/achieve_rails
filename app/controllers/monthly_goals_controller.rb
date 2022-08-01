@@ -11,8 +11,7 @@ class MonthlyGoalsController < ApplicationController
   end
 
   def index
-    # monthly_goals = MonthlyGoal.where("user_id = #{current_user.id}").order(id: "ASC").last(1)
-    monthly_goals = MonthlyGoal.all
+    monthly_goals = MonthlyGoal.where("user_id = #{current_user.id}").order(id: "ASC").last(1)
     monthly_goals_array = monthly_goals.map do |monthly_goal|
       {
         id: monthly_goal.id,

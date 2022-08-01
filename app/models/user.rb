@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_many :goals
   has_many :threemonths_goals
   has_many :monthly_goals
+  has_many :reports
   validates :name, presence: true
   validates :name, length: { maximum: 30 }
 end

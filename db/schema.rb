@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_31_235504) do
+ActiveRecord::Schema.define(version: 2022_08_01_015841) do
 
   create_table "goals", force: :cascade do |t|
     t.integer "user_id"
@@ -43,6 +43,19 @@ ActiveRecord::Schema.define(version: 2022_07_31_235504) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_monthly_goals_on_user_id"
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.integer "user_id"
+    t.text "report"
+    t.text "point"
+    t.string "location"
+    t.string "time"
+    t.string "condition"
+    t.string "intensity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_reports_on_user_id"
   end
 
   create_table "threemonths_goals", force: :cascade do |t|
