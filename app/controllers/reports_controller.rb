@@ -1,6 +1,11 @@
 class ReportsController < ApplicationController
   before_action :authenticate_user!
 
+  def new
+    reports = Report.new
+    date = params[:datepicker_value]
+  end
+
   def create
     reports = Report.new(report: params[:report], point: params[:point], location: params[:location], time: params[:time], condition: params[:condition], intensity: params[:intensity], user_id: current_user.id)
     if reports.save
