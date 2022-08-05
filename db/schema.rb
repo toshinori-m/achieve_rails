@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_01_015841) do
+ActiveRecord::Schema.define(version: 2022_08_05_073514) do
 
   create_table "goals", force: :cascade do |t|
     t.integer "user_id"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2022_08_01_015841) do
     t.string "intensity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "datepicker_value"
     t.index ["user_id"], name: "index_reports_on_user_id"
   end
 
