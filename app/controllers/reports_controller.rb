@@ -22,6 +22,7 @@ class ReportsController < ApplicationController
         id: report.id,
         user_id: report.user_id,
         name: report.user.name,
+        datepicker_value: report.datepicker_value,
         report: report.report,
         point: report.point,
         location: report.location,
