@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   resources :threemonths_goals, only: ['create', 'index']
   resources :monthly_goals, only: ['create', 'index']
   resources :reports, only: ['new', 'create', 'index']
+  # resources :guests, only: ['create']
+  resources :guests, only: [:create]
 end
